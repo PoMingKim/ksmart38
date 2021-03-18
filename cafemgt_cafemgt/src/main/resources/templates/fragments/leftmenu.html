@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="leftFragment">
+	<div class="col-md-3 left_col">
+		<div class="left_col scroll-view">
+			<div class="navbar nav_title" style="border: 0;">
+				<a href="/index" class="site_title"><i>ca</i>
+					<span>cafe ~ system</span></a>
+			</div>
+
+			<div class="clearfix"></div>
+
+			<!-- menu profile quick info -->
+			
+			<div class="profile clearfix">
+				<div class="profile_pic">
+					<img src="images/img.jpg" alt="..." class="img-circle profile_img">
+				</div>
+				<div class="profile_info">
+					<span>Welcome,</span>
+					<h2>John Doe</h2>
+				</div>
+			</div>
+			<!-- /menu profile quick info -->
+
+			<br />
+
+			<!-- sidebar menu -->
+			<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+				<div class="menu_section">
+					<h3>General</h3>
+					<ul class="nav side-menu">
+						<li><a><i class="fa fa-home"></i> #기초 등록(??) <span	class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">
+								<li><a th:href="@{addstore}">사업장 등록(영은)</a></li>
+								<li><a href="#">품목 등록</a></li>
+								<li><a href="#">메뉴 등록</a></li>
+								<li><a href="#">메뉴 레시피 등록</a></li>
+							</ul>
+						</li>
+						<li><a><i class="fa fa-desktop"></i> #매장 관리(최영은)<span	class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">							
+								<li><a>#사업장 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addstore}">사업장 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getstore}">사업장 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#직원 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{adduser}">직원 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getuser}">직원 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#거래처 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addcustomer}">거래처 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getcustomer}">거래처 조회</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a><i class="fa fa-cubes"></i> #재고 관리(진우주) <span class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">
+								<li><a>#메뉴(상품) 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addmenu}">메뉴(상품) 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getmenu}">메뉴(상품) 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#메뉴(상품) 레시피 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addrecipy}">메뉴(상품) 레시피 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getrecipy}">메뉴(상품) 레시피 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#품목 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addarticle}">품목 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getarticle}">품목 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#재고 조사<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addskk}">재고 조사 내역 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getskk}">재고 조사 내역 조회</a></li>
+									</ul>
+								</li>
+								<li>
+									<a th:href="@{getstock}">#매입별 품목 재고 조회<span class="nav child_menu"></span></a>
+								</li>
+								<li>
+									<a th:href="@{gettotalstock}">#품목별 재고 총 수량 조회<span class="nav child_menu"></span></a>
+								</li>
+							</ul>
+						</li>
+						<li><a><i class="fa fa-money"></i> #급여 관리(백재영) <span class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">
+								<li><a>#추가수당 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addbonus}">추가수당 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getbonus}">추가수당 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#상용직 급여 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addsalary}">급여 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getsalary}">급여 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#일용직 급여 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{adddsalary}">급여 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getdsalary}">급여 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#출퇴근 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addwtime}">출퇴근 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getwtime}">출퇴근 조회</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a><i class="fa fa-table"></i> #매입매출 관리(현진) <span	class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">
+								<li><a>#매입 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addpurchases}">매입 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getpurchases}">매입 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#매출 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addsales}">매출 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getsales}">매출 조회</a></li>
+									</ul>
+								</li>
+								<li><a>#기타 지출 관리<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a th:href="@{addotherpurchases}">기타 지출 등록</a></li>
+										<li class="sub_menu"><a th:href="@{getotherpurchases}">기타 지출 조회</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>	
+						<li><a><i class="fa fa-bar-chart-o"></i> #세무 관리(장현진) <span class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">
+								<li><a href="#">기간별 매출매입 조회</a></li>
+								<li><a href="#">부가세 조회</a></li>
+								<li><a href="#">손익계산서 조회</a></li>
+							</ul>
+						</li>
+						<li><a><i class="fa fa-bar-chart-o"></i> #관리자 설정 <span class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">
+								<li><a href="#">고객센터</a></li>
+								<li><a href="#">1:1문의</a></li>
+								<li><a href="#">자주묻는질문(FAQ)</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="menu_section">
+					<h3>메모</h3>
+					<ul class="nav side-menu">
+						<li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span
+								class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">
+								<li><a>Level One<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li class="sub_menu"><a href="level2.html">Level Two</a>
+										</li>
+										<li><a href="#level2_1">Level Two</a></li>
+										<li><a href="#level2_2">Level Two</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<!-- /sidebar menu -->
+
+			<!-- /menu footer buttons -->
+			<div class="sidebar-footer hidden-small">
+				<a data-toggle="tooltip" data-placement="top" title="Settings">
+					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+				</a> 
+				<a data-toggle="tooltip" data-placement="top" title="FullScreen">
+					<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+				</a> 
+				<a data-toggle="tooltip" data-placement="top" title="Lock"> <span
+					class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+				</a> 
+				<a data-toggle="tooltip" data-placement="top" title="Logout" href="#최영은"> 
+					<span class="glyphicon glyphicon-off"aria-hidden="true"></span>
+				</a>
+			</div>
+			<!-- /menu footer buttons -->
+		</div>
+	</div>
+</div>
+</html>

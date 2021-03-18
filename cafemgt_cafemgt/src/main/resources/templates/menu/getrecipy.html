@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="@{layout/default}">
+
+	<th:block layout:fragment="customTitle">
+		<title>메뉴 레시피 조회</title>
+	</th:block>
+
+	<th:block layout:fragment="customContents">
+		<div class="right_col" role="main">
+			<table border=1 class="table">
+				<thead>
+					<tr>
+						<th>레시피코드</th>
+						<th>상호코드</th>
+						<th>상호명</th>
+						<th>메뉴코드</th>
+						<th>메뉴명</th>
+						<th>소모품목</th>
+						<th>소모량</th>
+						<th>소모단위</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="rl : ${recipyList}">
+						<td th:text="${rl.conCode}"></td>
+						<td th:text="${rl.storeInfoCode}"></td>
+						<td th:text="${rl.storeInfoName}"></td>
+						<td th:text="${rl.menuCode}"></td>
+						<td th:text="${rl.menuName}"></td>
+						<td th:text="${rl.conName}"></td>
+						<td th:text="${rl.conVolume}"></td>
+						<td th:text="${rl.conDan}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+
+</html>

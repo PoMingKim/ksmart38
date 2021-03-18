@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<div th:fragment="js">
+		<!-- jQuery -->
+		<script th:src="@{/vendors/jquery/dist/jquery.min.js}"></script>
+		<!-- Bootstrap -->
+		<script th:src="@{/vendors/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+		<!-- FastClick -->
+		<script th:src="@{/vendors/fastclick/lib/fastclick.js}"></script>
+		<!-- NProgress -->
+		<script th:src="@{/vendors/nprogress/nprogress.js}"></script>
+		<!-- iCheck -->
+	    <script th:src="@{/vendors/iCheck/icheck.min.js}"></script>
+		<th:block layout:fragment="customJs"></th:block>
+		
+		<!-- Custom Theme Scripts -->
+		<script th:src="@{/build/js/custom.js}"></script>
+		
+	</div>
+
+</html>

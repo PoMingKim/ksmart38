@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cafemgt.dao.RecipyMapper">
+	<resultMap type="RecipyDto" id="recipyResultMap">
+		<result property="conCode" 			column="con_code" />
+		<result property="storeInfoCode" 	column="store_info_code" />
+		<result property="storeInfoName" 	column="store_info_name" />
+		<result property="menuCode" 		column="menu_code" />
+		<result property="menuName" 		column="menu_name" />
+		<result property="conName" 			column="con_name" />
+		<result property="conVolume" 		column="con_volume" />
+		<result property="conDan" 			column="con_dan" />
+	</resultMap>
+	<select id="getRecipy" resultMap="recipyResultMap">
+		SELECT
+			 c.con_code
+		 	,st.store_info_code
+			,st.store_info_name
+			,m.menu_code
+			,m.menu_name
+			,c.con_name
+			,c.con_volume
+			,c.con_dan
+		FROM
+			tb_consumption c
+			LEFT join
+			tb_menu m
+			ON c.menu_code = m.menu_code
+			LEFT JOIN
+			tb_store_info st
+			ON m.store_info_code = st.store_info_code
+
+		
+	</select>
+</mapper>

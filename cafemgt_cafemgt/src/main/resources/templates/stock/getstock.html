@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="@{layout/default}">
+
+	<th:block layout:fragment="customTitle">
+		<title>매입별 품목 재고 조회</title>
+	</th:block>
+
+	<th:block layout:fragment="customContents">
+		<div class="right_col" role="main">
+			<table border=1 class="table">
+				<thead>
+					<tr>
+						<th>재고관리코드</th>
+						<th>사업장 코드</th>
+						<th>상호명</th>
+						<th>품목코드</th>
+						<th>품목명</th>
+						<th>그룹코드</th>
+						<th>용량</th>
+						<th>단위</th>
+						<th>입고수량</th>
+						<th>입고용량소계</th>
+						<th>출입고단가합계</th>
+						<th>최소단위단가</th>
+						<th>소모수량</th>
+						<th>출고용량합계</th>
+						<th>현재수량</th>
+						<th>현재용량</th>
+						<th>등록날짜</th>
+						<th>그룹코드2</th>
+						<!-- <th>연관 테이블</th> -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="sl:${stockList}">
+						<td th:text="${sl.stockCode}"></td>
+						<td th:text="${sl.storeInfoCode}"></td>
+						<td th:text="${sl.storeInfoName}"></td>
+						<td th:text="${sl.articleCode}"></td>
+						<td th:text="${sl.articleName}"></td>
+						<td th:text="${sl.stockGroupCode}"></td>
+						<td th:text="${sl.articleVolume}"></td>
+						<td th:text="${sl.articleDan}"></td>
+						<td th:text="${sl.incoCount}"></td>
+						<td th:text="${sl.incoVolumeSubtotal}"></td>
+						<td th:text="${sl.stockIncoUnitTotal}"></td>
+						<td th:text="${sl.stockMinUnit}"></td>
+						<td th:text="${sl.stockConCount}"></td>
+						<td th:text="${sl.stocklVolumeTotal}"></td>
+						<td th:text="${sl.stockNowCount}"></td>
+						<td th:text="${sl.stockNowVolume}"></td>
+						<td th:text="${sl.stockRegDate}"></td>
+						<td th:text="${sl.stockGroupCode2}"></td>
+						<!-- <td th:text="${sl.stockRelation}"></td> -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+
+</html>

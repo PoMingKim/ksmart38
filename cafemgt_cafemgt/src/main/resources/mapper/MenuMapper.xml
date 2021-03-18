@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cafemgt.dao.MenuMapper">
+	<resultMap type="MenuDto" id="menuResultMap">
+		<result property="menuCode" 		column="menu_code" />
+		<result property="storeInfoCode" 	column="store_info_code" />
+		<result property="storeInfoName" 	column="store_info_name" />
+		<result property="menuName" 		column="menu_name" />
+		<result property="menuCate" 		column="menu_cate" />
+		<result property="menuPrice" 		column="menu_price" />
+		<result property="menuRegDate" 		column="menu_reg_date" />
+	</resultMap>
+	<select id="getMenu" resultMap="menuResultMap">
+		SELECT
+			 m.menu_code
+			,st.store_info_code
+			,st.store_info_name
+			,m.menu_name
+			,m.menu_cate
+			,m.menu_price
+			,m.menu_reg_date
+		FROM
+			tb_menu as m
+			LEFT JOIN
+			tb_store_info as st
+			ON m.store_info_code = st.store_info_code
+	</select>
+</mapper>

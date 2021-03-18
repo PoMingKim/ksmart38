@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cafemgt.dao.SalaryMapper">
+
+	<resultMap type="SalaryDto" id="salaryResultMap">
+		<result property="salaryCode" 		column="salary_code"/>
+		<result property="storeInfoCode" 	column="store_info_code"/>
+		<result property="storeInfoName" 	column="store_info_name"/>
+		<result property="userId" 			column="user_id"/>
+		<result property="userName" 		column="user_name"/>
+		<result property="salaryYearMonth"	column="salary_year_month"/>
+		<result property="salaryPay"		column="salary_pay"/>
+		<result property="salaryBtaxTotal" 	column="salary_btax_total"/>
+		<result property="salaryBntaxTotal" column="salary_bntax_total"/>
+		<result property="salaryTotal"		column="salary_total"/>
+		<result property="intaxCode" 		column="intax_code"/>
+		<result property="intaxMin" 		column="intax_min"/>
+		<result property="intaxMax" 		column="intax_max"/>
+		<result property="intaxWork" 		column="intax_work"/>
+		<result property="intaxLocal" 		column="intax_local"/>
+		<result property="insuCode" 		column="insu_code"/>
+		<result property="salaryInsuCalc" 	column="salary_insu_calc"/>
+		<result property="salaryDeduction" 	column="salary_deduction"/>
+		<result property="salaryReceipts" 	column="salary_receipts"/>
+		<result property="salaryPayDate" 	column="salary_pay_date"/>
+		<result property="salaryRegDate" 	column="salary_reg_date"/>
+	</resultMap>
+
+	<select id="getSalary" resultMap="salaryResultMap">
+		SELECT
+			slr.salary_code
+			,slr.store_info_code
+			,st.store_info_name
+			,slr.user_id
+			,us.user_name
+			,slr.salary_year_month
+			,slr.salary_pay
+			,slr.salary_btax_total
+			,slr.salary_bntax_total
+			,slr.salary_total
+			,intax.intax_code
+			,intax.intax_min
+			,intax.intax_max
+			,intax.intax_work
+			,intax.intax_local
+			,insu.insu_code
+			,slr.salary_insu_calc
+			,slr.salary_deduction
+			,slr.salary_receipts
+			,slr.salary_pay_date
+			,slr.salary_reg_date
+		FROM
+			tb_salary AS slr
+		LEFT JOIN
+			tb_store_info AS st
+		ON
+			slr.store_info_code = st.store_info_code
+		LEFT JOIN
+			tb_user AS us
+		ON
+			slr.user_id=us.user_id
+		LEFT JOIN
+			tb_insurance AS insu
+		ON
+			slr.insu_code = insu.insu_code
+		LEFT JOIN
+			tb_income_tax_2021 AS intax
+		ON
+			slr.intax_code = intax.intax_code
+	</select>
+</mapper>

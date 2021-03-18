@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cafemgt.dao.SkkMapper">
+	<resultMap type="SkkDto" id="SkkResultMap">
+		<result property="skCode"	 			column="sk_code" />
+		<result property="storeInfoCode" 		column="store_info_code" />
+		<result property="storeInfoName" 		column="store_info_name" />
+		<result property="articleCode" 			column="article_code" />
+		<result property="articleName" 			column="article_name" />
+		<result property="stockCode" 			column="stock_code" />
+		<result property="stockNowVolume" 		column="stock_now_volume" />
+		<result property="skProbeVolume" 		column="sk_probe_volume" />
+		<result property="skErrorVolume" 		column="sk_error_volume" />
+		<result property="stockMinUnit" 		column="stock_min_unit" />
+		<result property="skErrorPriceTotal"	column="sk_error_price_total" />
+		<result property="skEtc" 				column="sk_etc" />
+		<result property="skDate" 				column="sk_date" />
+		<result property="skRegDate" 			column="sk_reg_date" />
+		<result property="skSystemId" 			column="sk_system_id" />
+		<result property="skSystemName" 		column="sk_system_name" />
+	</resultMap>
+	<select id="getSkk" resultMap="SkkResultMap">
+		SELECT
+			 sk.sk_code
+			,st.store_info_code
+			,st.store_info_name
+			,atc.article_code
+			,atc.article_name
+			,sk.stock_code
+			,s.stock_now_volume
+			,sk.sk_probe_volume
+			,sk.sk_error_volume
+			,s.stock_min_unit
+			,sk.sk_error_price_total
+			,sk.sk_etc
+			,sk.sk_date
+			,sk.sk_reg_date
+			,sk.sk_system_id
+			,sk.sk_system_name
+		FROM
+			tb_stocktaking AS sk
+			LEFT join
+			tb_store_info AS st
+			on
+			sk.store_info_code = st.store_info_code
+			LEFT join
+			tb_article AS atc
+			on
+			sk.article_code = atc.article_code
+			LEFT JOIN
+			tb_stock AS s
+			on
+			sk.stock_code = s.stock_code
+	</select>
+</mapper>
