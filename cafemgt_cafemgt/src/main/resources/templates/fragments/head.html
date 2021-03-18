@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="headFragment">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Meta, title, CSS, favicons, etc. -->
+ 	
+ 	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<!-- <link rel="icon" href="images/favicon.ico" type="image/ico" /> -->
+
+ 	<!-- Bootstrap -->
+ 	<link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/build/css/custom.css" rel="stylesheet">
+    
+	<!-- 화면 title 설정  -->
+	<th:block layout:fragment="customTitle"></th:block>
+
+	<!-- 사용자 정의 css  -->
+	<th:block layout:fragment="customCss"></th:block>
+
+	<!-- 사용자 정의 Script -->
+	<th:block layout:fragment="customScript"></th:block>
+</head>
+</html>

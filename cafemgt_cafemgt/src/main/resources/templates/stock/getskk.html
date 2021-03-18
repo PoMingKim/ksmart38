@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="@{layout/default}">
+
+	<th:block layout:fragment="customTitle">
+		<title>재고 조사 내역 조회</title>
+	</th:block>
+
+	<th:block layout:fragment="customContents">
+		<div class="right_col" role="main">
+			<table border=1 class="table">
+				<thead>
+					<tr>
+						<th>재고조사코드</th>
+						<th>상호코드</th>
+						<th>상호명</th>
+						<th>품목코드</th>
+						<th>품목명</th>
+						<th>재고코드</th>
+						<th>현재재고용량</th>
+						<th>조사재고용량</th>
+						<th>오차재고용량</th>
+						<th>최소단위단가</th>
+						<th>오차금액</th>
+						<th>상세</th>
+						<th>조사날짜</th>
+						<th>등록날짜</th>
+						<th>등록자아이디</th>
+						<th>등록자이름</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="skkl :${skkList}">
+						<td th:text="${skkl.skCode}"></td>
+						<td th:text="${skkl.storeInfoCode}"></td>
+						<td th:text="${skkl.storeInfoName}"></td>
+						<td th:text="${skkl.articleCode}"></td>
+						<td th:text="${skkl.articleName}"></td>
+						<td th:text="${skkl.stockCode}"></td>
+						<td th:text="${skkl.stockNowVolume}"></td>
+						<td th:text="${skkl.skProbeVolume}"></td>
+						<td th:text="${skkl.skErrorVolume}"></td>
+						<td th:text="${skkl.stockMinUnit}"></td>
+						<td th:text="${skkl.skErrorPriceTotal}"></td>
+						<td th:text="${skkl.skEtc}"></td>
+						<td th:text="${skkl.skDate}"></td>
+						<td th:text="${skkl.skRegDate}"></td>
+						<td th:text="${skkl.skSystemId}"></td>
+						<td th:text="${skkl.skSystemName}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+</html>

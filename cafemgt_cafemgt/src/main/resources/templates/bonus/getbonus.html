@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="@{layout/default}">
+
+	<th:block layout:fragment="customTitle">
+		<title>추가수당 조회</title>
+	</th:block>
+<th:block layout:fragment="customCss">
+	<!-- Datatables -->
+	<link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+	<link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+	<link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+	<link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+</th:block>
+<th:block layout:fragment="customContents">
+	<div class="right_col" role="main">
+		<div class="col-md-12 col-sm-12 ">
+			<div class="x_panel">
+				 <div class="x_title">
+                    <h2>출퇴근 조회</h2>
+					<ul class="nav navbar-right panel_toolbox">
+						<li>
+							<a class="collapse-link">
+								<i class="fa fa-chevron-up"></i>
+							</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-expanded="false">
+								<i class="fa fa-wrench"></i>
+							</a>
+								
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Settings 1</a> 
+								<a class="dropdown-item" href="#">Settings 2</a>
+							</div>
+						</li>
+						<li>
+							<a class="close-link">
+								<i class="fa fa-close">
+								</i>
+							</a>
+						</li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card-box table-responsive">
+							<!--<p class="text-muted font-13 m-b-30">
+									여기에 설명써주시면됩니다.
+									<code>강조!</code>
+								</p> -->
+								<table id="datatable-checkbox" class="table table-striped table-bordered bulk_action" style="width: 100%">
+									<thead>
+										<tr>
+											<th>추가수당 코드</th>
+											<th>상호명</th>
+											<th>직원아이디</th>
+											<th>직원이름</th>
+											<th>귀속년월</th>
+											<th>추가수당코드</th>
+											<th>과세비과세구분</th>
+											<th>추가수당항목</th>
+											<th>금액</th>
+											<th>상세</th>
+											<th>등록날짜</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="slr : ${bonusList}">
+											<td th:text="${slr.ubCode}">
+											<td th:text="${slr.storeInfoName}">
+											<td th:text="${slr.userId}">
+											<td th:text="${slr.userName}">
+											<td th:text="${slr.ubYearMonth}">
+											<td th:text="${slr.btaxCode}">
+											<td th:text="${slr.btaxOption}">
+											<td th:text="${slr.btaxCate}">
+											<td th:text="${slr.ubPay}">
+											<td th:text="${slr.ubEtc}">
+											<td th:text="${slr.ubRegDate}">
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</th:block>
+	<th:block layout:fragment="customJs">
+		<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+		<script
+			src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+		<script
+			src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+		<script
+			src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+		<script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+		<script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+		<script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+		<script
+			src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+		<script
+			src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+		<script
+			src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+		<script
+			src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+		<script
+			src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+		<script src="../vendors/jszip/dist/jszip.min.js"></script>
+		<script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+		<script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+	</th:block>
+</html>

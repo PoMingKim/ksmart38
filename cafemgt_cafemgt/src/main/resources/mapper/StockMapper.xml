@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cafemgt.dao.StockMapper">
+	<resultMap type="StockDto" id="StockResultMap">
+		<result property="stockCode"	 			column="stock_code" />
+		<result property="storeInfoCode"	 		column="store_info_code" />
+		<result property="storeInfoName"	 		column="store_info_name" />
+		<result property="articleCode"	 			column="article_code" />
+		<result property="articleName"	 			column="article_name" />
+		<result property="stockGroupCode"	 		column="stock_group_code" />	
+		<result property="articleVolume"	 		column="article_volume" />	
+		<result property="articleDan"	 			column="article_dan" />	
+		<result property="incoCount"	 			column="inco_count" />	
+		<result property="incoVolumeSubtotal"	 	column="inco_volume_subtotal" />	
+		<result property="stockIncoUnitTotal"	 	column="stock_inco_unit_total" />
+		<result property="stockMinUnit"	 			column="stock_min_unit" />
+		<result property="stockConCount"	 		column="stock_con_count" />
+		<result property="stocklVolumeTotal"	 	column="stock_volume_total" />
+		<result property="stockNowCount"	 		column="stock_now_count" />
+		<result property="stockNowVolume"	 		column="stock_now_volume" />
+		<result property="stockRegDate"	 			column="stock_reg_date" />
+		<result property="stockGroupCode2"	 		column="stock_group_code2" />
+		<result property="stockRelation"	 		column="stock_relation" />
+		
+	</resultMap>
+	<select id="getStock" resultMap="StockResultMap">
+		SELECT
+			s.stock_code
+			,st.store_info_code
+			,st.store_info_name
+			,atc.article_code
+			,atc.article_name
+			,s.stock_group_code
+			,atc.article_volume
+			,atc.article_dan
+			,s.inco_count
+			,s.inco_volume_subtotal
+			,s.stock_inco_unit_total
+			,s.stock_min_unit
+			,s.stock_con_count
+			,s.stock_volume_total
+			,s.stock_now_count
+			,s.stock_now_volume
+			,s.stock_reg_date
+			,s.stock_group_code2
+			,s.stock_relation
+		FROM
+			tb_stock AS s
+			LEFT join
+			tb_store_info AS st
+			on
+			s.store_info_code = st.store_info_code
+			LEFT join
+			tb_article AS atc
+			on
+			s.article_code = atc.article_code
+	</select>
+</mapper>

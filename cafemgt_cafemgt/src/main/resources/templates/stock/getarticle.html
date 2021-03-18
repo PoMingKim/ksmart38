@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="@{layout/default}">
+
+	<th:block layout:fragment="customTitle">
+		<title>품목 조회</title>
+	</th:block>
+
+	<th:block layout:fragment="customContents">
+		<div class="right_col" role="main">
+			<table border=1 class="table">
+				<thead>
+					<tr>
+						<th>품목코드</th>
+						<th>상호코드</th>
+						<th>상호명</th>
+						<th>품목명</th>
+						<th>과세면세분류</th>
+						<th>대분류</th>
+						<th>대분류단위</th>
+						<th>중분류</th>
+						<th>중분류 단위</th>
+						<th>용량</th>
+						<th>단위</th>
+						<th>상세</th>
+						<th>등록날짜</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="al : ${articleList}">
+						<td th:text="${al.articleCode}"></td>
+						<td th:text="${al.storeInfoCode}"></td>
+						<td th:text="${al.storeInfoName}"></td>
+						<td th:text="${al.articleName}"></td>
+						<td th:text="${al.articleTaxCate}"></td>
+						<td th:text="${al.artcleBig}"></td>
+						<td th:text="${al.artcleBigDan}"></td>
+						<td th:text="${al.artcleMiddle}"></td>
+						<td th:text="${al.artcleMiddleDan}"></td>
+						<td th:text="${al.articleVolume}"></td>
+						<td th:text="${al.articleDan}"></td>
+						<td th:text="${al.articleEtc}"></td>
+						<td th:text="${al.articleRegDate}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+
+</html>
